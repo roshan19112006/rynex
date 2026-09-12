@@ -1,0 +1,347 @@
+/* ==========================================================================
+   RYNEX — Web & Software Solutions
+   High-Fidelity Cyberpunk / Luxury Dark Mode Design System
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Tailwind Core & Reset Primitives
+   -------------------------------------------------------------------------- */
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-syne: 'Syne', sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-outfit: 'Outfit', sans-serif;
+
+  --color-void: #030308;
+  --color-purple-glow: #9333ea;
+  --color-cyan-glow: #06b6d4;
+  --color-indigo-glow: #6366f1;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-void);
+}
+
+body {
+  font-family: var(--font-outfit);
+  background-color: #030308;
+  color: #f8fafc;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Typography Helpers */
+.font-syne { font-family: var(--font-syne); }
+.font-space { font-family: var(--font-space); }
+.font-mono { font-family: var(--font-mono); }
+.font-outfit { font-family: var(--font-outfit); }
+
+/* Background Void */
+.bg-void {
+  background-color: #030308;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(147, 51, 234, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+}
+
+/* ==========================================================================
+   Ambient Poster Lighting & Glowing Planetary Glass Arcs
+   ========================================================================== */
+.ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+}
+
+/* Top-Left Glowing Glass Ring (Matching Poster Top Left) */
+.ambient-top-left {
+  top: -15vw;
+  left: -15vw;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.35) 0%, rgba(99, 102, 241, 0.2) 40%, rgba(3, 3, 8, 0) 75%);
+  border: 1.5px solid rgba(168, 85, 247, 0.25);
+  box-shadow: 0 0 120px rgba(147, 51, 234, 0.35), inset 0 0 80px rgba(168, 85, 247, 0.2);
+  animation: floatOrb 18s ease-in-out infinite alternate;
+}
+
+/* Bottom-Right Glowing Glass Ring (Matching Poster Bottom Right) */
+.ambient-bottom-right {
+  bottom: -20vw;
+  right: -20vw;
+  width: 65vw;
+  height: 65vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, rgba(59, 130, 246, 0.15) 45%, rgba(3, 3, 8, 0) 80%);
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 140px rgba(6, 182, 212, 0.3), inset 0 0 90px rgba(56, 189, 248, 0.2);
+  animation: floatOrb 22s ease-in-out infinite alternate-reverse;
+}
+
+.ambient-center {
+  top: 30%;
+  left: 30%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  filter: blur(120px);
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3vw, 2vw) scale(1.05); }
+  100% { transform: translate(-2vw, -1vw) scale(0.97); }
+}
+
+/* Scanline and Grid Overlay */
+.scanline-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(rgba(18, 16, 38, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+              linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  background-size: 100% 4px, 6px 100%;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   Custom Cybernetic Cursor
+   ========================================================================== */
+.custom-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(56, 189, 248, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  mix-blend-mode: screen;
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor.hovering {
+  width: 54px;
+  height: 54px;
+  border-color: rgba(168, 85, 247, 0.8);
+  background-color: rgba(147, 51, 234, 0.1);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor, .custom-cursor-dot {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   3D Hologram Logo & Poster Elements
+   ========================================================================== */
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+.logo-3d-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.light-sweep-beam {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 60%
+  );
+  transform: rotate(-45deg) translateY(-100%);
+  animation: sweepLight 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes sweepLight {
+  0% { transform: rotate(-45deg) translateY(-120%); }
+  30%, 100% { transform: rotate(-45deg) translateY(120%); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(0.98); }
+  50% { opacity: 0.85; transform: scale(1.04); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 3s ease-in-out infinite;
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Metallic Chrome Brand Typography */
+.brand-title {
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 35%, #94a3b8 65%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.3)) drop-shadow(0 0 50px rgba(99, 102, 241, 0.4));
+  position: relative;
+}
+
+.brand-title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  transform: skewX(-25deg);
+  animation: chromeShine 5s infinite;
+}
+
+@keyframes chromeShine {
+  0%, 40% { left: -100%; }
+  60%, 100% { left: 160%; }
+}
+
+.brand-title-reflection {
+  position: absolute;
+  top: 65%;
+  left: 0;
+  right: 0;
+  transform: scaleY(-0.5);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(2px);
+  opacity: 0.25;
+}
+
+.text-glow-subtle {
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.4), 0 0 30px rgba(168, 85, 247, 0.3);
+}
+
+/* ==========================================================================
+   Poster Contact HUD & Interactive Buttons
+   ========================================================================== */
+.poster-hud-item {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.poster-hud-item:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+/* Service Card Glowing Hover Tracer */
+.service-card {
+  position: relative;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent, rgba(6, 182, 212, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card-glow-dot {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+  filter: blur(20px);
+  transition: all 0.5s ease;
+}
+
+.service-card:hover .card-glow-dot {
+  transform: scale(1.8);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Estimator Custom Controls & Sliders
+   ========================================================================== */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #38bdf8;
+  cursor: pointer;
+  box-shadow: 0 0 15px #38bdf8;
+  border: 2px solid #ffffff;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #38bdf8;
+  cursor: pointer;
+  box-shadow: 0 0 15px #38bdf8;
+  border: 2px solid #ffffff;
+}
+
+/* ==========================================================================
+   Custom Glass & Border Utility Styles
+   ========================================================================== */
+.nav-link.active {
+  color: #38bdf8;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.nav-link.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #9333ea, #38bdf8);
+  margin-top: 4px;
+  border-radius: 2px;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 640px) {
+  .brand-title {
+    letter-spacing: 0.12em;
+  }
+}

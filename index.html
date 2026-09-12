@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RYNEX — Web & Software Solutions | Build Digital Tomorrow</title>
+  <meta name="description" content="Rynex delivers world-class websites, enterprise software, and scalable digital solutions. Ideas into Reality. Based in Chennai, India.">
+  <meta name="keywords" content="Rynex, Web Development, Software Solutions, Scalable Systems, Chennai Freelancing, Custom Software, Next.js, React, Digital Agency">
+  <meta property="og:title" content="RYNEX — Web & Software Solutions">
+  <meta property="og:description" content="Ideas ➔ Websites ➔ Software ➔ Reality. High-performance custom web and software solutions.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            void: '#030308',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-void text-slate-100 antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-black">
+  
+  <!-- Custom Cyber Cursor -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+
+  <!-- Background Canvas for Interactive Constellation Particles -->
+  <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Ambient Planetary Glowing Rings (Matching Poster Visuals) -->
+  <div class="ambient-glow ambient-top-left"></div>
+  <div class="ambient-glow ambient-bottom-right"></div>
+  <div class="ambient-glow ambient-center"></div>
+  <div class="scanline-overlay"></div>
+
+  <!-- Main Navigation Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-black/40 border-b border-white/5 py-3 px-4 lg:px-12">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none" data-sound="hover">
+        <div class="relative w-9 h-9 flex items-center justify-center p-1 rounded-lg bg-gradient-to-br from-purple-600/30 via-indigo-600/20 to-cyan-500/30 border border-white/10 group-hover:border-cyan-400/50 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+          <img src="assets/logo.svg" alt="Rynex Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]">
+          <div class="absolute inset-0 bg-cyan-400/10 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-syne font-black text-xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-cyan-400">RYNEX</span>
+          <span class="text-[8px] font-mono tracking-widest text-slate-400 uppercase -mt-1">Solutions</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-space text-slate-300">
+        <a href="#hero" class="nav-link active hover:text-cyan-400 transition-colors" data-sound="hover">Overview</a>
+        <a href="#services" class="nav-link hover:text-cyan-400 transition-colors" data-sound="hover">Services</a>
+        <a href="#pipeline" class="nav-link hover:text-cyan-400 transition-colors" data-sound="hover">Pipeline</a>
+        <a href="#estimator" class="nav-link hover:text-cyan-400 transition-colors" data-sound="hover">Estimator</a>
+        <a href="#tech" class="nav-link hover:text-cyan-400 transition-colors" data-sound="hover">Tech Stack</a>
+        <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors" data-sound="hover">Contact</a>
+      </nav>
+
+      <!-- Right Controls & CTA -->
+      <div class="flex items-center gap-3">
+        <!-- Audio FX Toggle -->
+        <button id="soundToggle" class="relative p-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-cyan-400 transition-all text-xs font-mono flex items-center gap-1.5 px-3" title="Toggle Futuristic Audio FX" data-sound="click">
+          <i data-lucide="volume-2" class="w-4 h-4 sound-on-icon"></i>
+          <i data-lucide="volume-x" class="w-4 h-4 sound-off-icon hidden"></i>
+          <span class="hidden sm:inline sound-status-text">SFX: ON</span>
+        </button>
+
+        <!-- WhatsApp Quick Connect -->
+        <a href="https://wa.me/919489447111?text=Hello%20Rynex,%20I%20would%20like%20to%20discuss%20a%20project!" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600/30 to-teal-500/20 hover:from-emerald-500/40 hover:to-teal-400/30 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)]" data-sound="click">
+          <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+          <span>WhatsApp</span>
+        </a>
+
+        <!-- Main Quote CTA Button -->
+        <a href="#estimator" class="cyber-btn relative inline-flex items-center justify-center px-4 py-2 text-xs font-space font-semibold uppercase tracking-wider rounded-xl overflow-hidden transition-all duration-300 group" data-sound="click">
+          <span class="absolute inset-0 bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 opacity-80 group-hover:opacity-100 transition-opacity"></span>
+          <span class="absolute inset-[1px] bg-black/80 rounded-[11px] group-hover:bg-black/50 transition-colors"></span>
+          <span class="relative z-10 text-white flex items-center gap-1.5">
+            <span>Get Estimate</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-300 hover:text-white" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="md:hidden hidden pt-4 pb-2 border-t border-white/10 mt-3 flex flex-col gap-3 font-space text-sm">
+      <a href="#hero" class="mobile-nav-link py-2 px-3 hover:bg-white/5 rounded-lg text-slate-200">Overview</a>
+      <a href="#services" class="mobile-nav-link py-2 px-3 hover:bg-white/5 rounded-lg text-slate-200">Services</a>
+      <a href="#pipeline" class="mobile-nav-link py-2 px-3 hover:bg-white/5 rounded-lg text-slate-200">Pipeline</a>
+      <a href="#estimator" class="mobile-nav-link py-2 px-3 hover:bg-white/5 rounded-lg text-slate-200">Cost Estimator</a>
+      <a href="#tech" class="mobile-nav-link py-2 px-3 hover:bg-white/5 rounded-lg text-slate-200">Tech Stack</a>
+      <a href="#contact" class="mobile-nav-link py-2 px-3 hover:bg-white/5 rounded-lg text-slate-200">Contact HUD</a>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ==========================================
+         HERO SECTION (Living Elevation of Poster)
+         ========================================== -->
+    <section id="hero" class="relative min-h-screen flex flex-col justify-between pt-24 pb-12 px-4 lg:px-12 overflow-hidden">
+      
+      <!-- Top Poster HUD Header Elements -->
+      <div class="max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 z-20 pt-4">
+        
+        <!-- Top Left Poster Text: WEBSITES / SOFTWARE / SCALABLE SOLUTIONS -->
+        <div class="hero-tag-badge group" data-sound="hover">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#38bdf8]"></span>
+            <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-cyan-300/80">Capabilities</span>
+          </div>
+          <div class="text-xs sm:text-sm font-mono tracking-[0.2em] font-medium text-slate-200 uppercase flex flex-col sm:flex-row sm:gap-2">
+            <span class="hover:text-cyan-400 transition-colors cursor-default">WEBSITES</span>
+            <span class="hidden sm:inline text-purple-400">•</span>
+            <span class="hover:text-purple-400 transition-colors cursor-default">SOFTWARE</span>
+            <span class="hidden sm:inline text-cyan-400">•</span>
+            <span class="hover:text-cyan-300 transition-colors cursor-default">SCALABLE SOLUTIONS</span>
+          </div>
+          <div class="h-[1.5px] w-24 bg-gradient-to-r from-purple-500 via-cyan-400 to-transparent mt-1 group-hover:w-full transition-all duration-500"></div>
+        </div>
+
+        <!-- Top Right Poster Text: BUILD / DIGITAL / TOMORROW -->
+        <div class="hero-tag-badge sm:text-right group" data-sound="hover">
+          <div class="flex items-center sm:justify-end gap-2 mb-1">
+            <span class="text-[10px] font-mono uppercase tracking-[0.25em] text-purple-300/80">Vision 2026</span>
+            <span class="inline-block w-2 h-2 rounded-full bg-purple-500 animate-ping shadow-[0_0_8px_#a855f7]"></span>
+          </div>
+          <div class="text-xs sm:text-sm font-mono tracking-[0.2em] font-medium text-slate-200 uppercase flex flex-col sm:flex-row sm:gap-2">
+            <span class="hover:text-purple-400 transition-colors cursor-default">BUILD</span>
+            <span class="hidden sm:inline text-cyan-400">•</span>
+            <span class="hover:text-indigo-400 transition-colors cursor-default">DIGITAL</span>
+            <span class="hidden sm:inline text-purple-400">•</span>
+            <span class="hover:text-cyan-400 transition-colors cursor-default">TOMORROW</span>
+          </div>
+          <div class="h-[1.5px] w-24 bg-gradient-to-l from-cyan-400 via-purple-500 to-transparent mt-1 ml-auto group-hover:w-full transition-all duration-500"></div>
+        </div>
+
+      </div>
+
+      <!-- Center 3D Holographic Poster Visualizer -->
+      <div class="max-w-4xl mx-auto w-full my-auto flex flex-col items-center justify-center text-center py-8 z-20">
+        
+        <!-- Live Status Capsule -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-950/40 backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(147,51,234,0.2)] animate-bounce-slow">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-[11px] font-mono tracking-widest text-purple-200 uppercase">Available for New High-Impact Projects</span>
+        </div>
+
+        <!-- 3D Hologram Logo Container with Parallax Gyroscope/Mouse Tilt -->
+        <div class="relative perspective-1000 my-2" id="logo3dContainer">
+          
+          <!-- Outer Neon Refraction Halos -->
+          <div class="absolute -inset-10 bg-gradient-to-tr from-purple-600/40 via-indigo-600/30 to-cyan-500/40 rounded-full blur-3xl opacity-60 animate-pulse-glow pointer-events-none"></div>
+          
+          <div class="relative logo-3d-card w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 transition-transform duration-200 ease-out cursor-pointer group" id="logoCard" data-sound="hover">
+            <!-- Glassmorphic 3D Emblem Layers -->
+            <div class="absolute inset-0 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_40px_rgba(99,102,241,0.3)] group-hover:border-cyan-400/40 transition-colors"></div>
+            
+            <!-- Shimmer Light Sweep -->
+            <div class="light-sweep-beam"></div>
+
+            <!-- The Glowing 'R' SVG Emblem -->
+            <div class="relative w-full h-full p-4 flex items-center justify-center">
+              <img src="assets/logo.svg" alt="Rynex 3D Emblem" class="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(6,182,212,0.5)] transform group-hover:scale-105 transition-transform duration-500">
+            </div>
+
+            <!-- Corner HUD Accents -->
+            <div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-purple-400/80"></div>
+            <div class="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-cyan-400/80"></div>
+            <div class="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-cyan-400/80"></div>
+            <div class="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-purple-400/80"></div>
+          </div>
+        </div>
+
+        <!-- Metallic Chrome Brand Typography -->
+        <div class="relative mt-6 mb-2">
+          <h1 class="brand-title font-syne font-black text-6xl sm:text-7xl md:text-8xl tracking-[0.18em] text-transparent uppercase select-none">
+            RYNEX
+          </h1>
+          <div class="brand-title-reflection font-syne font-black text-6xl sm:text-7xl md:text-8xl tracking-[0.18em] text-transparent uppercase select-none pointer-events-none">
+            RYNEX
+          </div>
+        </div>
+
+        <!-- Subtitle from poster: WEB & SOFTWARE SOLUTIONS -->
+        <h2 class="font-space font-medium text-sm sm:text-base md:text-lg tracking-[0.35em] text-slate-300 uppercase mt-1 mb-8 text-glow-subtle flex items-center justify-center gap-3">
+          <span class="h-[1px] w-6 sm:w-12 bg-gradient-to-r from-transparent to-cyan-400"></span>
+          <span>WEB &amp; SOFTWARE SOLUTIONS</span>
+          <span class="h-[1px] w-6 sm:w-12 bg-gradient-to-l from-transparent to-purple-400"></span>
+        </h2>
+
+        <!-- Interactive Journey Flow Pipeline Bar (Direct from poster) -->
+        <div class="w-full max-w-2xl px-2">
+          <div class="relative p-1 rounded-2xl bg-black/60 border border-white/10 backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+            <div class="flow-pipeline-bar flex flex-wrap items-center justify-between gap-1 sm:gap-2 px-3 py-2 text-xs sm:text-sm font-space font-semibold tracking-wider">
+              
+              <!-- Step 1: Ideas -->
+              <button class="flow-node active flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all duration-300 text-cyan-300 bg-cyan-950/60 border border-cyan-500/40 shadow-[0_0_12px_rgba(6,182,212,0.3)]" data-step="0" data-sound="click">
+                <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>IDEAS</span>
+              </button>
+
+              <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 text-purple-400 animate-pulse"></i>
+
+              <!-- Step 2: Websites -->
+              <button class="flow-node flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all duration-300 text-slate-400 hover:text-cyan-300 hover:bg-white/5" data-step="1" data-sound="click">
+                <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+                <span>WEBSITES</span>
+              </button>
+
+              <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 text-purple-400 animate-pulse"></i>
+
+              <!-- Step 3: Software -->
+              <button class="flow-node flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all duration-300 text-slate-400 hover:text-purple-300 hover:bg-white/5" data-step="2" data-sound="click">
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-purple-400"></i>
+                <span>SOFTWARE</span>
+              </button>
+
+              <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 text-cyan-400 animate-pulse"></i>
+
+              <!-- Step 4: Reality -->
+              <button class="flow-node flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-all duration-300 text-slate-400 hover:text-emerald-300 hover:bg-white/5" data-step="3" data-sound="click">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>REALITY</span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- Dynamic Pipeline Info Snip -->
+          <div id="pipelineSnippet" class="mt-3 text-xs font-mono text-slate-400 flex items-center justify-center gap-2">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+            <span id="pipelineSnippetText">STAGE 01 // Blueprinting vision, user flow architecture, and rapid prototyping.</span>
+          </div>
+        </div>
+
+        <!-- Quick Launch Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
+          <a href="#estimator" class="px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 text-white font-space font-semibold text-sm tracking-wide shadow-[0_0_25px_rgba(99,102,241,0.5)] hover:shadow-[0_0_35px_rgba(6,182,212,0.7)] hover:scale-105 transition-all duration-300 flex items-center gap-2" data-sound="click">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            <span>Calculate Project Scope</span>
+          </a>
+
+          <a href="#services" class="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-400/50 text-slate-200 font-space font-medium text-sm tracking-wide backdrop-blur-md transition-all duration-300 flex items-center gap-2" data-sound="click">
+            <i data-lucide="layers" class="w-4 h-4 text-cyan-400"></i>
+            <span>Explore Services</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Bottom Poster Contact HUD Bar (Exact Recreation & Functional) -->
+      <div class="max-w-7xl mx-auto w-full z-20 pt-6 border-t border-white/10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+          
+          <!-- Column 1: Phone / WhatsApp (9489447111) -->
+          <div class="poster-hud-item flex flex-col md:items-start items-center group relative p-3 rounded-xl hover:bg-white/[0.03] transition-all cursor-pointer" id="phoneHud" data-copy="9489447111" data-sound="click">
+            <div class="flex items-center gap-2">
+              <span class="text-lg sm:text-xl font-mono font-bold text-white tracking-wider group-hover:text-cyan-400 transition-colors">9489447111</span>
+              <span class="copy-badge opacity-0 group-hover:opacity-100 text-[10px] font-mono bg-cyan-950 text-cyan-300 px-1.5 py-0.5 rounded border border-cyan-800 transition-opacity">COPY / CALL</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-slate-400 uppercase mt-0.5">
+              <i data-lucide="phone-call" class="w-3 h-3 text-cyan-400"></i>
+              <span>CALL OR WHATSAPP</span>
+            </div>
+            <div class="w-12 h-[1px] bg-purple-500/50 mt-2 group-hover:w-32 transition-all"></div>
+          </div>
+
+          <!-- Column 2: Email (rynexfreelancing@gmail.com) -->
+          <div class="poster-hud-item flex flex-col items-center group relative p-3 rounded-xl hover:bg-white/[0.03] transition-all cursor-pointer md:border-x md:border-white/10" id="emailHud" data-copy="rynexfreelancing@gmail.com" data-sound="click">
+            <div class="flex items-center gap-2">
+              <span class="text-base sm:text-lg font-mono font-bold text-white tracking-wide group-hover:text-purple-400 transition-colors">rynexfreelancing@gmail.com</span>
+              <span class="copy-badge opacity-0 group-hover:opacity-100 text-[10px] font-mono bg-purple-950 text-purple-300 px-1.5 py-0.5 rounded border border-purple-800 transition-opacity">COPY / MAIL</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-slate-400 uppercase mt-0.5">
+              <i data-lucide="mail" class="w-3 h-3 text-purple-400"></i>
+              <span>DROP US A MAIL</span>
+            </div>
+            <div class="w-12 h-[1px] bg-cyan-400/50 mt-2 group-hover:w-32 transition-all"></div>
+          </div>
+
+          <!-- Column 3: Base Location (Chennai, India) -->
+          <div class="poster-hud-item flex flex-col md:items-end items-center group relative p-3 rounded-xl hover:bg-white/[0.03] transition-all">
+            <div class="flex items-center gap-2">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span class="text-lg sm:text-xl font-mono font-bold text-white tracking-wider group-hover:text-emerald-400 transition-colors">Chennai, India</span>
+              <span id="chennaiTime" class="text-xs font-mono text-cyan-300/80 bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/30">IST --:--</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-slate-400 uppercase mt-0.5">
+              <i data-lucide="map-pin" class="w-3 h-3 text-emerald-400"></i>
+              <span>OUR BASE • 13.0827° N, 80.2707° E</span>
+            </div>
+            <div class="w-12 h-[1px] bg-emerald-500/50 mt-2 group-hover:w-32 transition-all ml-auto"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SERVICES & SOLUTIONS MATRIX
+         ========================================== -->
+    <section id="services" class="relative py-24 px-4 lg:px-12 border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/40 text-cyan-300 text-xs font-mono mb-4">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+            <span>ENGINEERING EXCELLENCE</span>
+          </div>
+          <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+            Comprehensive Digital Solutions Built to <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400">Scale</span>
+          </h2>
+          <p class="font-space text-slate-400 text-sm sm:text-base">
+            From lightning-fast responsive websites to fault-tolerant enterprise software systems, Rynex builds software that drives tangible business growth.
+          </p>
+        </div>
+
+        <!-- Service Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1: Custom Web Applications -->
+          <div class="service-card group relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.04] to-black/40 border border-white/10 hover:border-cyan-400/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-lg overflow-hidden" data-sound="hover">
+            <div class="card-glow-dot"></div>
+            <div class="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all">
+              <i data-lucide="globe" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-white mb-3 group-hover:text-cyan-300 transition-colors">Custom Web Applications</h3>
+            <p class="font-space text-slate-400 text-sm leading-relaxed mb-6">
+              Next-generation single-page applications and web platforms powered by React, Next.js, and TypeScript with ultra-fast sub-second loading.
+            </p>
+            <ul class="space-y-2 text-xs font-mono text-slate-300 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Responsive Across All Devices</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> Headless CMS &amp; SSR Optimization</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400"></i> 100/100 Lighthouse Performance</li>
+            </ul>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-cyan-400">
+              <span>EXPLORE STACK</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Card 2: Enterprise Software Architecture -->
+          <div class="service-card group relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.04] to-black/40 border border-white/10 hover:border-purple-400/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-lg overflow-hidden" data-sound="hover">
+            <div class="card-glow-dot"></div>
+            <div class="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all">
+              <i data-lucide="server" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-white mb-3 group-hover:text-purple-300 transition-colors">Enterprise Software Solutions</h3>
+            <p class="font-space text-slate-400 text-sm leading-relaxed mb-6">
+              Robust backend infrastructures, microservices, and custom CRM/ERP management systems engineered for high concurrency and zero downtime.
+            </p>
+            <ul class="space-y-2 text-xs font-mono text-slate-300 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> High-Throughput REST &amp; GraphQL APIs</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Relational &amp; NoSQL Database Architecture</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Enterprise Role-Based Access Control</li>
+            </ul>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-purple-400">
+              <span>EXPLORE STACK</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Card 3: SaaS & Scalable Platforms -->
+          <div class="service-card group relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.04] to-black/40 border border-white/10 hover:border-indigo-400/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-lg overflow-hidden" data-sound="hover">
+            <div class="card-glow-dot"></div>
+            <div class="w-14 h-14 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all">
+              <i data-lucide="layout-grid" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-white mb-3 group-hover:text-indigo-300 transition-colors">SaaS &amp; E-Commerce Platforms</h3>
+            <p class="font-space text-slate-400 text-sm leading-relaxed mb-6">
+              Full-featured SaaS portals and conversion-optimized e-commerce engines with payment gateways, automated invoicing, and live analytics.
+            </p>
+            <ul class="space-y-2 text-xs font-mono text-slate-300 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Stripe, Razorpay &amp; Crypto Payments</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Real-time Telemetry &amp; Reporting</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400"></i> Subscription Billing Engine</li>
+            </ul>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-indigo-400">
+              <span>EXPLORE STACK</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Card 4: UI/UX & Brand Design -->
+          <div class="service-card group relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.04] to-black/40 border border-white/10 hover:border-pink-400/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-lg overflow-hidden" data-sound="hover">
+            <div class="card-glow-dot"></div>
+            <div class="w-14 h-14 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(236,72,153,0.4)] transition-all">
+              <i data-lucide="sparkles" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-white mb-3 group-hover:text-pink-300 transition-colors">Ultra-Modern UI/UX &amp; 3D</h3>
+            <p class="font-space text-slate-400 text-sm leading-relaxed mb-6">
+              Eye-catching user experiences, interactive micro-animations, glassmorphism aesthetics, and 3D web interfaces that captivate your audience.
+            </p>
+            <ul class="space-y-2 text-xs font-mono text-slate-300 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Figma High-Fidelity Design Systems</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> WebGL &amp; Canvas Interactive FX</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-pink-400"></i> Seamless Brand Storytelling</li>
+            </ul>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-pink-400">
+              <span>EXPLORE STACK</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Card 5: Cloud Infrastructure & DevOps -->
+          <div class="service-card group relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.04] to-black/40 border border-white/10 hover:border-emerald-400/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-lg overflow-hidden" data-sound="hover">
+            <div class="card-glow-dot"></div>
+            <div class="w-14 h-14 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all">
+              <i data-lucide="cloud" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-white mb-3 group-hover:text-emerald-300 transition-colors">Cloud DevOps &amp; Scaling</h3>
+            <p class="font-space text-slate-400 text-sm leading-relaxed mb-6">
+              Automated CI/CD pipelines, Docker container orchestration, AWS/Cloudflare edge serverless deployment with 99.99% availability.
+            </p>
+            <ul class="space-y-2 text-xs font-mono text-slate-300 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> AWS / Vercel / DigitalOcean Setup</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Docker &amp; Kubernetes Containers</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Automated Daily Backups &amp; CDN</li>
+            </ul>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-emerald-400">
+              <span>EXPLORE STACK</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+
+          <!-- Card 6: AI Integration & Automation -->
+          <div class="service-card group relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.04] to-black/40 border border-white/10 hover:border-amber-400/50 transition-all duration-500 hover:-translate-y-2 backdrop-blur-lg overflow-hidden" data-sound="hover">
+            <div class="card-glow-dot"></div>
+            <div class="w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all">
+              <i data-lucide="bot" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-syne font-bold text-xl text-white mb-3 group-hover:text-amber-300 transition-colors">AI &amp; Workflow Automation</h3>
+            <p class="font-space text-slate-400 text-sm leading-relaxed mb-6">
+              Integrate intelligent AI models (OpenAI, Anthropic, Gemini, local LLMs), custom automation bots, and data scrapers directly into your workflow.
+            </p>
+            <ul class="space-y-2 text-xs font-mono text-slate-300 mb-6">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Custom LLM RAG &amp; Chatbots</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Python Data Pipelines &amp; Scrapers</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-amber-400"></i> Intelligent Document Processing</li>
+            </ul>
+            <div class="pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-amber-400">
+              <span>EXPLORE STACK</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE PIPELINE TERMINAL (IDEAS -> REALITY)
+         ========================================== -->
+    <section id="pipeline" class="relative py-24 px-4 lg:px-12 bg-black/60 border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-950/40 text-purple-300 text-xs font-mono mb-4">
+              <i data-lucide="git-branch" class="w-3.5 h-3.5"></i>
+              <span>EXECUTION FRAMEWORK</span>
+            </div>
+            <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight">
+              The <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-emerald-400">Rynex Pipeline</span>
+            </h2>
+          </div>
+          <p class="font-space text-slate-400 text-sm max-w-md">
+            Click through each phase of our development lifecycle to see how we turn raw concepts into bulletproof production software.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Stage Selector Buttons (Left Column) -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <!-- Stage 0: Ideas -->
+            <div class="pipeline-tab active p-5 rounded-2xl border border-cyan-500/40 bg-cyan-950/30 backdrop-blur-md cursor-pointer transition-all duration-300" data-stage="0" data-sound="click">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-300 font-mono text-xs flex items-center justify-center font-bold">01</span>
+                  <h4 class="font-syne font-bold text-lg text-white">1. IDEAS — Architecture &amp; Discovery</h4>
+                </div>
+                <i data-lucide="lightbulb" class="w-5 h-5 text-amber-400"></i>
+              </div>
+              <p class="font-space text-slate-400 text-xs leading-relaxed">
+                Requirement scoping, technical stack specification, user persona mapping, and structural wireframing.
+              </p>
+            </div>
+
+            <!-- Stage 1: Websites -->
+            <div class="pipeline-tab p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-md cursor-pointer transition-all duration-300" data-stage="1" data-sound="click">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-300 font-mono text-xs flex items-center justify-center font-bold">02</span>
+                  <h4 class="font-syne font-bold text-lg text-white">2. WEBSITES — UI/UX &amp; Frontend Craft</h4>
+                </div>
+                <i data-lucide="globe" class="w-5 h-5 text-cyan-400"></i>
+              </div>
+              <p class="font-space text-slate-400 text-xs leading-relaxed">
+                Design system tokens, interactive component development, 60fps micro-animations, and full mobile optimization.
+              </p>
+            </div>
+
+            <!-- Stage 2: Software -->
+            <div class="pipeline-tab p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-md cursor-pointer transition-all duration-300" data-stage="2" data-sound="click">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-300 font-mono text-xs flex items-center justify-center font-bold">03</span>
+                  <h4 class="font-syne font-bold text-lg text-white">3. SOFTWARE — Engine &amp; Data Layer</h4>
+                </div>
+                <i data-lucide="cpu" class="w-5 h-5 text-purple-400"></i>
+              </div>
+              <p class="font-space text-slate-400 text-xs leading-relaxed">
+                Database modeling, secure API integrations, business logic, asynchronous task runners, and automated testing suites.
+              </p>
+            </div>
+
+            <!-- Stage 3: Reality -->
+            <div class="pipeline-tab p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] backdrop-blur-md cursor-pointer transition-all duration-300" data-stage="3" data-sound="click">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-3">
+                  <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-300 font-mono text-xs flex items-center justify-center font-bold">04</span>
+                  <h4 class="font-syne font-bold text-lg text-white">4. REALITY — Production &amp; Scale</h4>
+                </div>
+                <i data-lucide="sparkles" class="w-5 h-5 text-emerald-400"></i>
+              </div>
+              <p class="font-space text-slate-400 text-xs leading-relaxed">
+                Edge deployment, zero-downtime CI/CD pipelines, SSL encryption, CDN caching, and 24/7 telemetry monitoring.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Interactive Terminal Simulator (Right Column) -->
+          <div class="lg:col-span-7">
+            <div class="terminal-window rounded-2xl border border-white/10 bg-black/80 shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_30px_rgba(99,102,241,0.2)] overflow-hidden font-mono text-xs">
+              
+              <!-- Terminal Header -->
+              <div class="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                  <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                  <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                  <span class="text-slate-400 ml-2 text-[11px]">rynex-pipeline-engine // node: v22.1.0</span>
+                </div>
+                <div class="flex items-center gap-2 text-[10px] text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                  <span>LIVE REPL</span>
+                </div>
+              </div>
+
+              <!-- Terminal Code Body -->
+              <div class="p-6 overflow-x-auto text-slate-300 space-y-3 min-h-[300px]" id="terminalContent">
+                <!-- Dynamically populated via JS -->
+              </div>
+
+              <!-- Terminal Status Bar -->
+              <div class="px-4 py-2 bg-white/[0.02] border-t border-white/5 flex items-center justify-between text-[10px] text-slate-500">
+                <span id="terminalStatus">Status: Pipeline Active • Chennai Gateway Connected</span>
+                <span class="text-cyan-400">UTF-8 // 0 ERRORS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE PROJECT ESTIMATOR & SCOPE CALCULATOR
+         ========================================== -->
+    <section id="estimator" class="relative py-24 px-4 lg:px-12 border-t border-white/5">
+      <div class="max-w-5xl mx-auto">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-950/40 text-emerald-300 text-xs font-mono mb-4">
+            <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+            <span>TRANSPARENT &amp; FAST</span>
+          </div>
+          <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+            Instant Project Scope &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-indigo-400">Estimator</span>
+          </h2>
+          <p class="font-space text-slate-400 text-sm">
+            Select your requirements to configure your project scope. Send your pre-filled brief straight to our WhatsApp or email with one click!
+          </p>
+        </div>
+
+        <div class="p-6 sm:p-10 rounded-3xl bg-gradient-to-b from-white/[0.04] to-black/60 border border-white/10 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+          
+          <div class="space-y-8">
+            
+            <!-- Step 1: Project Type -->
+            <div>
+              <label class="block font-syne font-bold text-sm text-slate-200 mb-3 uppercase tracking-wider flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-mono text-xs flex items-center justify-center">1</span>
+                <span>Select Project Domain</span>
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <button class="estimator-type-btn active p-4 rounded-xl border border-cyan-500/50 bg-cyan-950/40 text-left transition-all" data-type="High-Converting Website" data-base="15000" data-sound="click">
+                  <i data-lucide="monitor" class="w-5 h-5 text-cyan-400 mb-2"></i>
+                  <div class="font-syne font-bold text-white text-sm">Modern Website</div>
+                  <div class="text-[10px] font-mono text-slate-400">Landing, Brand, Portfolio</div>
+                </button>
+
+                <button class="estimator-type-btn p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 text-left transition-all" data-type="Custom Web Application" data-base="35000" data-sound="click">
+                  <i data-lucide="layout" class="w-5 h-5 text-purple-400 mb-2"></i>
+                  <div class="font-syne font-bold text-white text-sm">Web Application</div>
+                  <div class="text-[10px] font-mono text-slate-400">SaaS, Portal, Dashboard</div>
+                </button>
+
+                <button class="estimator-type-btn p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 text-left transition-all" data-type="Enterprise Software / Backend" data-base="60000" data-sound="click">
+                  <i data-lucide="database" class="w-5 h-5 text-indigo-400 mb-2"></i>
+                  <div class="font-syne font-bold text-white text-sm">Custom Software</div>
+                  <div class="text-[10px] font-mono text-slate-400">CRM, ERP, High-scale API</div>
+                </button>
+
+                <button class="estimator-type-btn p-4 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 text-left transition-all" data-type="E-Commerce Ecosystem" data-base="40000" data-sound="click">
+                  <i data-lucide="shopping-bag" class="w-5 h-5 text-emerald-400 mb-2"></i>
+                  <div class="font-syne font-bold text-white text-sm">E-Commerce</div>
+                  <div class="text-[10px] font-mono text-slate-400">Cart, Gateway, Inventory</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Feature Add-ons -->
+            <div>
+              <label class="block font-syne font-bold text-sm text-slate-200 mb-3 uppercase tracking-wider flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 font-mono text-xs flex items-center justify-center">2</span>
+                <span>Select Required Capabilities &amp; Add-ons</span>
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <label class="estimator-addon-card flex items-center gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 cursor-pointer transition-all" data-sound="click">
+                  <input type="checkbox" class="estimator-checkbox sr-only" value="User Auth & RBAC" data-cost="8000" checked>
+                  <div class="check-box-visual w-5 h-5 rounded border border-cyan-500/50 flex items-center justify-center text-cyan-400 bg-cyan-950/40">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <span class="text-xs font-mono text-slate-200">User Auth &amp; Profiles</span>
+                </label>
+
+                <label class="estimator-addon-card flex items-center gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 cursor-pointer transition-all" data-sound="click">
+                  <input type="checkbox" class="estimator-checkbox sr-only" value="Payment Gateway (Stripe/UPI)" data-cost="10000" checked>
+                  <div class="check-box-visual w-5 h-5 rounded border border-cyan-500/50 flex items-center justify-center text-cyan-400 bg-cyan-950/40">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <span class="text-xs font-mono text-slate-200">Payment Gateway</span>
+                </label>
+
+                <label class="estimator-addon-card flex items-center gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 cursor-pointer transition-all" data-sound="click">
+                  <input type="checkbox" class="estimator-checkbox sr-only" value="Admin Analytics Panel" data-cost="12000">
+                  <div class="check-box-visual w-5 h-5 rounded border border-white/20 flex items-center justify-center text-transparent">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <span class="text-xs font-mono text-slate-200">Admin Control Panel</span>
+                </label>
+
+                <label class="estimator-addon-card flex items-center gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 cursor-pointer transition-all" data-sound="click">
+                  <input type="checkbox" class="estimator-checkbox sr-only" value="3D WebGL / Cyber FX" data-cost="15000">
+                  <div class="check-box-visual w-5 h-5 rounded border border-white/20 flex items-center justify-center text-transparent">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <span class="text-xs font-mono text-slate-200">3D Interactive FX</span>
+                </label>
+
+                <label class="estimator-addon-card flex items-center gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 cursor-pointer transition-all" data-sound="click">
+                  <input type="checkbox" class="estimator-checkbox sr-only" value="AI Agent / LLM Integration" data-cost="18000">
+                  <div class="check-box-visual w-5 h-5 rounded border border-white/20 flex items-center justify-center text-transparent">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <span class="text-xs font-mono text-slate-200">AI / LLM Integration</span>
+                </label>
+
+                <label class="estimator-addon-card flex items-center gap-3 p-3.5 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/5 cursor-pointer transition-all" data-sound="click">
+                  <input type="checkbox" class="estimator-checkbox sr-only" value="DevOps CI/CD + Cloudflare Edge" data-cost="8000">
+                  <div class="check-box-visual w-5 h-5 rounded border border-white/20 flex items-center justify-center text-transparent">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <span class="text-xs font-mono text-slate-200">Cloud CI/CD &amp; CDN</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 3: Delivery Timeline -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="font-syne font-bold text-sm text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 font-mono text-xs flex items-center justify-center">3</span>
+                  <span>Estimated Delivery Pace</span>
+                </label>
+                <span id="timelineLabel" class="text-xs font-mono text-cyan-400 font-bold bg-cyan-950/60 px-2.5 py-1 rounded border border-cyan-800">2-3 WEEKS (Standard)</span>
+              </div>
+              <input type="range" id="timelineRange" min="1" max="3" step="1" value="2" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+              <div class="flex justify-between text-[11px] font-mono text-slate-500 mt-2">
+                <span>⚡ Hyper Sprint (1-2 Weeks)</span>
+                <span>🚀 Standard Agile (2-4 Weeks)</span>
+                <span>🛡️ Enterprise Roadmap (4-8 Weeks)</span>
+              </div>
+            </div>
+
+            <!-- Estimate Output Summary Box -->
+            <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <div class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">Estimated Ballpark Range (INR)</div>
+                <div class="flex items-baseline gap-2">
+                  <span id="estimatePrice" class="font-syne font-black text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-purple-400">₹33,000 - ₹45,000</span>
+                  <span class="text-xs font-mono text-slate-500">est.</span>
+                </div>
+                <div class="text-[11px] font-mono text-slate-400 mt-1" id="estimateSummaryText">1 Domain + 2 Custom Modules</div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                <button id="dispatchWhatsappEstimate" class="flex-1 md:flex-none px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-space font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all" data-sound="click">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  <span>Send via WhatsApp</span>
+                </button>
+
+                <button id="dispatchEmailEstimate" class="flex-1 md:flex-none px-5 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-space font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all" data-sound="click">
+                  <i data-lucide="mail" class="w-4 h-4 text-purple-400"></i>
+                  <span>Email Brief</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         TECHNOLOGY ECOSYSTEM & PERFORMANCE
+         ========================================== -->
+    <section id="tech" class="relative py-24 px-4 lg:px-12 bg-black/40 border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-950/40 text-purple-300 text-xs font-mono mb-4">
+            <i data-lucide="code-2" class="w-3.5 h-3.5"></i>
+            <span>PRODUCTION ARSENAL</span>
+          </div>
+          <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+            Cutting-Edge <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400">Tech Ecosystem</span>
+          </h2>
+          <p class="font-space text-slate-400 text-sm">
+            Battle-tested frameworks, ultra-fast compilers, and distributed cloud primitives designed for speed and reliability.
+          </p>
+        </div>
+
+        <!-- Tech Pill Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-4xl mx-auto mb-16">
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-cyan-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+            <span>React 19 / Next.js</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-blue-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+            <span>TypeScript</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-emerald-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Node.js / Express</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-amber-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+            <span>Python / FastAPI</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-indigo-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+            <span>PostgreSQL &amp; Redis</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-sky-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+            <span>Tailwind CSS</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-rose-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+            <span>Docker &amp; K8s</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-purple-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+            <span>Cloudflare Edge</span>
+          </div>
+
+          <div class="tech-pill flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-orange-400/50 hover:bg-white/[0.07] transition-all font-mono text-xs text-slate-200" data-sound="hover">
+            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
+            <span>AWS Cloud Services</span>
+          </div>
+        </div>
+
+        <!-- Metric Counters -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-white/5 text-center">
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="font-syne font-black text-3xl sm:text-4xl text-cyan-400 mb-1">&lt;0.8s</div>
+            <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Avg Page Load</div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="font-syne font-black text-3xl sm:text-4xl text-purple-400 mb-1">100%</div>
+            <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Mobile Responsive</div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="font-syne font-black text-3xl sm:text-4xl text-emerald-400 mb-1">99.9%</div>
+            <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Uptime Reliability</div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="font-syne font-black text-3xl sm:text-4xl text-indigo-400 mb-1">24/7</div>
+            <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Direct Base Support</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         COMMAND CENTER CONTACT & TELEMETRY
+         ========================================== -->
+    <section id="contact" class="relative py-24 px-4 lg:px-12 border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Contact Info & Telemetry HUD (Left) -->
+          <div class="lg:col-span-5 space-y-8">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/40 text-cyan-300 text-xs font-mono mb-4">
+                <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+                <span>DIRECT LINK // CHENNAI HUB</span>
+              </div>
+              <h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+                Ready to Build Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-emerald-400">Digital Tomorrow?</span>
+              </h2>
+              <p class="font-space text-slate-400 text-sm leading-relaxed">
+                Connect directly with the Rynex team. Whether you need a full enterprise software stack or a sleek modern website, we are ready to build.
+              </p>
+            </div>
+
+            <!-- Direct Contact Channels with 1-Click Action -->
+            <div class="space-y-4">
+              
+              <!-- Direct WhatsApp / Call Card -->
+              <a href="https://wa.me/919489447111?text=Hello%20Rynex,%20I%20have%20a%20project%20inquiry!" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-emerald-500/50 transition-all duration-300 group" data-sound="click">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Call or WhatsApp</div>
+                    <div class="font-mono font-bold text-lg text-white group-hover:text-emerald-300 transition-colors">9489447111</div>
+                  </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-emerald-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+              </a>
+
+              <!-- Direct Email Card -->
+              <a href="mailto:rynexfreelancing@gmail.com" class="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-purple-500/50 transition-all duration-300 group" data-sound="click">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider">Drop Us A Mail</div>
+                    <div class="font-mono font-bold text-sm sm:text-base text-white group-hover:text-purple-300 transition-colors">rynexfreelancing@gmail.com</div>
+                  </div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-purple-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+              </a>
+
+              <!-- Chennai Base Radar Card -->
+              <div class="p-5 rounded-2xl bg-gradient-to-br from-white/[0.04] to-black/60 border border-white/10 relative overflow-hidden">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+                    </span>
+                    <span class="font-mono text-xs uppercase tracking-widest text-cyan-300 font-semibold">Base Telemetry • Chennai, India</span>
+                  </div>
+                  <span id="baseLiveClock" class="font-mono text-xs text-slate-300 bg-white/5 px-2 py-0.5 rounded">--:--:-- IST</span>
+                </div>
+                <div class="text-xs font-mono text-slate-400 leading-relaxed">
+                  Coordinates: <span class="text-slate-200">13.0827° N, 80.2707° E</span><br>
+                  Operating Range: <span class="text-slate-200">Global Remote (USA, UK, UAE, India, APAC)</span><br>
+                  Response Latency: <span class="text-emerald-400">&lt; 2 Hours</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Interactive Contact & Project Inquiry Form (Right) -->
+          <div class="lg:col-span-7">
+            <div class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-white/[0.04] to-black/60 border border-white/10 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+              
+              <h3 class="font-syne font-bold text-2xl text-white mb-2">Initiate Transmission</h3>
+              <p class="font-space text-slate-400 text-xs mb-6">Fill out the brief below to send an encrypted project inquiry directly to Rynex.</p>
+
+              <form id="contactForm" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">Your Name *</label>
+                    <input type="text" id="formName" required placeholder="Barath / Organization" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 text-sm font-space text-white placeholder-slate-600 transition-all">
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">Contact Email / Phone *</label>
+                    <input type="text" id="formContact" required placeholder="email@domain.com or +91..." class="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 text-sm font-space text-white placeholder-slate-600 transition-all">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">Service of Interest</label>
+                  <select id="formService" class="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 text-sm font-space text-white transition-all">
+                    <option value="Custom Website Design & Development">Custom Website Design &amp; Development</option>
+                    <option value="Enterprise Web Application / SaaS">Enterprise Web Application / SaaS</option>
+                    <option value="Custom Software & Backend Engine">Custom Software &amp; Backend Engine</option>
+                    <option value="E-Commerce & Payment Systems">E-Commerce &amp; Payment Systems</option>
+                    <option value="AI Integration & Automation">AI Integration &amp; Automation</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 uppercase tracking-wider mb-1.5">Project Overview / Goals *</label>
+                  <textarea id="formMessage" rows="4" required placeholder="Tell us about what you want to build, target audience, preferred timeline..." class="w-full px-4 py-3 rounded-xl bg-black/60 border border-white/10 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 text-sm font-space text-white placeholder-slate-600 transition-all resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-purple-500 hover:via-indigo-500 hover:to-cyan-400 text-white font-space font-semibold text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] transition-all duration-300 flex items-center justify-center gap-2 group" data-sound="click">
+                  <span>Send Project Transmission</span>
+                  <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="relative z-10 border-t border-white/10 bg-black/90 py-12 px-4 lg:px-12 text-slate-400 text-xs font-space">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Tagline -->
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-600/30 to-cyan-500/30 border border-white/10 p-1 flex items-center justify-center">
+          <img src="assets/logo.svg" alt="Rynex" class="w-full h-full object-contain">
+        </div>
+        <div>
+          <span class="font-syne font-bold text-sm text-white tracking-widest">RYNEX</span>
+          <span class="text-slate-500 ml-2 font-mono text-[10px]">© 2026 RYNEX. ALL RIGHTS RESERVED.</span>
+        </div>
+      </div>
+
+      <!-- Quick Pipeline Pill -->
+      <div class="font-mono text-[11px] text-slate-400 tracking-wider flex items-center gap-2">
+        <span class="text-cyan-400">IDEAS</span>
+        <span>→</span>
+        <span class="text-indigo-400">WEBSITES</span>
+        <span>→</span>
+        <span class="text-purple-400">SOFTWARE</span>
+        <span>→</span>
+        <span class="text-emerald-400">REALITY</span>
+      </div>
+
+      <!-- Back To Top Button -->
+      <button id="backToTop" class="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors font-mono text-[11px]" data-sound="click">
+        <span>RETURN TO TOP</span>
+        <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+      </button>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification System -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-900/95 border border-cyan-500/40 text-white font-mono text-xs shadow-[0_0_20px_rgba(6,182,212,0.3)] backdrop-blur-xl">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400"></i>
+    <span id="toastMessage">Copied to clipboard!</span>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Glow Filter -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="dropShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#4f46e5" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Gradients matching poster -->
+    <linearGradient id="purpleTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8b4fe"/>
+      <stop offset="35%" stop-color="#9333ea"/>
+      <stop offset="70%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+
+    <linearGradient id="cyanArc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+
+    <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+
+    <linearGradient id="sliceGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#6366f1" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <linearGradient id="chromeSheen" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Glow Behind Logo -->
+  <g filter="url(#neonGlow)" opacity="0.85">
+    <path d="M 170,90 L 330,90 C 400,90 445,135 445,205 C 445,260 410,300 355,315 L 435,420 L 370,420 L 300,325 L 235,325 L 235,420 L 170,420 Z" fill="none" stroke="url(#purpleTop)" stroke-width="24" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Main 3D Faceted Logo Group -->
+  <g filter="url(#dropShadow)">
+    <!-- Top Arc & Upper Loop -->
+    <path d="M 175,95 L 325,95 C 390,95 435,135 435,205 C 435,260 395,298 335,312 L 235,312 L 235,160 L 320,160 C 352,160 375,178 375,205 C 375,232 352,250 320,250 L 285,250 L 235,312" 
+          fill="url(#purpleTop)" />
+
+    <!-- Upper loop glass highlight -->
+    <path d="M 185,105 L 325,105 C 380,105 420,140 420,205 C 420,248 388,280 340,295 L 325,270 C 358,260 380,235 380,205 C 380,170 352,145 315,145 L 235,145 L 235,105 Z" 
+          fill="url(#chromeSheen)"/>
+
+    <!-- Left Angular Stem Blade -->
+    <path d="M 175,95 L 235,95 L 235,420 L 175,420 Z" 
+          fill="url(#stemGrad)" />
+
+    <!-- Diagonal Dynamic Cut & Slice on Stem -->
+    <polygon points="175,200 235,160 235,340 175,380" fill="url(#sliceGrad)"/>
+    <polygon points="175,200 235,160 215,260 175,290" fill="#0f172a" opacity="0.6"/>
+
+    <!-- Bottom Right Leg of the 'R' (Dynamic Jet-Cut) -->
+    <path d="M 285,275 L 340,275 L 440,420 L 375,420 L 295,310 L 255,310 Z" 
+          fill="url(#cyanArc)"/>
+
+    <!-- Glowing Cyan Edge Bevels -->
+    <path d="M 340,275 L 440,420 L 415,420 L 325,290 Z" fill="#38bdf8" opacity="0.8"/>
+    <path d="M 175,95 L 325,95 L 325,108 L 188,108 L 188,420 L 175,420 Z" fill="#e9d5ff" opacity="0.85"/>
+    <polygon points="175,200 235,160 240,165 175,208" fill="#ffffff" opacity="0.95"/>
+    <polygon points="295,310 440,420 445,417 305,306" fill="#67e8f9" opacity="0.9"/>
+  </g>
+
+  <!-- Specular Lens Flare Accent Center -->
+  <circle cx="235" cy="160" r="6" fill="#ffffff" filter="url(#neonGlow)"/>
+  <circle cx="440" cy="420" r="5" fill="#38bdf8" filter="url(#neonGlow)"/>
+  <line x1="200" y1="160" x2="270" y2="160" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  <line x1="235" y1="125" x2="235" y2="195" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+</svg>
