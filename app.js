@@ -474,13 +474,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const totalBase = (basePrice + addOnCost) * timelineMultiplier;
-    // Always round to clean 500 intervals
-    let finalAmount = Math.round(totalBase / 500) * 500;
-    finalAmount = Math.max(3000, Math.min(finalAmount, 19999));
+    const lower = Math.max(3000, Math.min(Math.round(totalBase), 19999));
+    const upper = Math.min(Math.round(totalBase * 1.35), 19999);
 
-    const priceDisplay = finalAmount >= 19999 
+    const priceDisplay = lower >= 19999 
       ? '₹19,999 (Max Cap)' 
-      : `₹${finalAmount.toLocaleString('en-IN')}`;
+      : (lower === upper ? `₹${lower.toLocaleString('en-IN')}` : `₹${lower.toLocaleString('en-IN')} - ₹${upper.toLocaleString('en-IN')}`);
 
     if (estimatePrice) {
       estimatePrice.textContent = priceDisplay;
@@ -488,8 +487,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (estimateSummaryText) {
       estimateSummaryText.textContent = selectedAddOns.length === 0
-        ? `${selectedDomain} (Base Rate: ${priceDisplay})`
-        : `${selectedDomain} + ${selectedAddOns.length} Add-on${selectedAddOns.length === 1 ? '' : 's'} (Total: ${priceDisplay})`;
+        ? `${selectedDomain} (Estimated Range: ${priceDisplay})`
+        : `${selectedDomain} + ${selectedAddOns.length} Add-on${selectedAddOns.length === 1 ? '' : 's'} (Estimated: ${priceDisplay})`;
     }
 
     return {
