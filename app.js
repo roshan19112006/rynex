@@ -544,7 +544,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  calculateEstimate();
+  // Automatically pre-select and click Starter Website on home page load
+  const starterBtn = document.querySelector('.estimator-type-btn[data-type="Starter Modern Website"]');
+  if (starterBtn) {
+    starterBtn.click();
+  } else {
+    calculateEstimate();
+  }
+
+  // Link Hero WEBSITES node to activate Starter Website in estimator
+  const websiteHeroNode = document.querySelector('.flow-node[data-step="1"]');
+  if (websiteHeroNode) {
+    websiteHeroNode.addEventListener('click', () => {
+      if (starterBtn) starterBtn.click();
+    });
+  }
 
   // WhatsApp Estimate Dispatcher
   const dispatchWhatsappBtn = document.getElementById('dispatchWhatsappEstimate');
