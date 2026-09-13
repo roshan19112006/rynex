@@ -70,9 +70,9 @@ for col_num, h in enumerate(headers_1, 1):
 
 rows_1 = [
     ("Starter Modern Website", 3000, "1 Single Page (Landing/Portfolio)", "Freelancers, Creators, Portfolios, Quick Launch", "Responsive Layout, Hero CTA, Lead Form, WhatsApp Chat, Fast Load (<1s)", "3 - 5 Days"),
-    ("Multi-Page Business Website", 6999, "3 - 5 Full Pages", "Small Businesses, Agencies, Consultancies, Clinics", "Home, About, Services, Contact, Full SEO, Custom UI/UX, Dynamic Forms", "7 - 10 Days"),
-    ("Dynamic Web Application", 11999, "5 - 8 Views / Dashboards", "SaaS Startups, Client Portals, Booking Tools", "React/Next.js UI, Node/Python API, Database, Filter/Search, Client Portal", "12 - 16 Days"),
-    ("Full E-Commerce / Custom SaaS", 15999, "Complete Multi-Module System", "Online Stores, Digital Products, Enterprise SaaS", "Product Catalog, Cart, Order Management, Payments, Admin Panel, Edge CDN (Max ₹19,999)", "2 - 3 Weeks")
+    ("Multi-Page Business Website", 6000, "3 - 5 Full Pages", "Small Businesses, Agencies, Consultancies, Clinics", "Home, About, Services, Contact, Full SEO, Custom UI/UX, Dynamic Forms", "7 - 10 Days"),
+    ("Dynamic Web Application", 10000, "5 - 8 Views / Dashboards", "SaaS Startups, Client Portals, Booking Tools", "React/Next.js UI, Node/Python API, Database, Filter/Search, Client Portal", "12 - 16 Days"),
+    ("Full E-Commerce / Custom SaaS", 15000, "Complete Multi-Module System", "Online Stores, Digital Products, Enterprise SaaS", "Product Catalog, Cart, Order Management, Payments, Admin Panel, Edge CDN (Max ₹19,999)", "2 - 3 Weeks")
 ]
 
 for row_idx, r in enumerate(rows_1, 5):
@@ -122,10 +122,10 @@ for col_num, h in enumerate(headers_2, 1):
 rows_2 = [
     ("User Auth & Profiles", 1000, "Security & Accounts", "Sign up / Login, Password recovery, JWT Sessions, User Profiles", "+1 - 2 Days"),
     ("Payment Gateway Integration", 1000, "Fintech & Checkout", "UPI, QR Code, Credit/Debit cards, Net Banking (Razorpay / Stripe)", "+1 - 2 Days"),
-    ("Admin Control & Analytics Dashboard", 1500, "Management", "Admin portal with charts, visitor counts, enquiry logs & data export", "+2 - 3 Days"),
-    ("3D Interactive FX & WebGL", 1200, "Visuals & UI", "Custom 3D canvas animations, gyro tilt, mouse particle shaders", "+1 - 2 Days"),
+    ("Admin Control & Analytics Dashboard", 1000, "Management", "Admin portal with charts, visitor counts, enquiry logs & data export", "+2 - 3 Days"),
+    ("3D Interactive FX & WebGL", 1000, "Visuals & UI", "Custom 3D canvas animations, gyro tilt, mouse particle shaders", "+1 - 2 Days"),
     ("AI Chatbot / Smart Assistant", 1500, "Artificial Intelligence", "Custom AI chatbot trained on business FAQs (OpenAI / Gemini)", "+2 - 3 Days"),
-    ("Custom Domain Setup & Fast Edge CDN", 800, "DevOps & Cloud", "Custom domain linking, SSL certificate (HTTPS), Cloudflare CDN boost", "+1 Day")
+    ("Custom Domain Setup & Fast Edge CDN", 500, "DevOps & Cloud", "Custom domain linking, SSL certificate (HTTPS), Cloudflare CDN boost", "+1 Day")
 ]
 
 for row_idx, r in enumerate(rows_2, 5):
@@ -173,10 +173,10 @@ for col_num, h in enumerate(headers_3, 1):
 
 rows_3 = [
     ("Budget Kickstart", "Starter Modern Website (₹3,000)", "Core Landing Page & WhatsApp Lead Gen", 3000, 3000),
-    ("Professional Business", "Multi-Page Business Site (₹6,999)", "Domain Setup & Fast CDN (+₹800)", 7799, 7799),
-    ("Interactive Brand Agency", "Multi-Page Business Site (₹6,999)", "3D Interactive FX (+₹1,200) + AI Chatbot (+₹1,500)", 9699, 9699),
-    ("Modern E-Commerce Store", "Full E-Commerce Platform (₹15,999)", "Payment Gateway (+₹1,000) + User Auth (+₹1,000)", 17999, 17999),
-    ("Ultimate Full-Stack SaaS", "Full SaaS Platform (₹15,999)", "All 6 Add-ons (Auth, Payments, Admin, 3D, AI, CDN)", 22999, 19999)
+    ("Professional Business", "Multi-Page Business Site (₹6,000)", "Domain Setup & Fast CDN (+₹500)", 6500, 6500),
+    ("Interactive Brand Agency", "Multi-Page Business Site (₹6,000)", "3D Interactive FX (+₹1,000) + AI Chatbot (+₹1,500)", 8500, 8500),
+    ("Modern E-Commerce Store", "Full E-Commerce Platform (₹15,000)", "Payment Gateway (+₹1,000) + User Auth (+₹1,000)", 17000, 17000),
+    ("Ultimate Full-Stack SaaS", "Full SaaS Platform (₹15,000)", "All 6 Add-ons (Auth, Payments, Admin, 3D, AI, CDN)", 21000, 19999)
 ]
 
 for row_idx, r in enumerate(rows_3, 5):
