@@ -437,8 +437,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 6. INSTANT PROJECT SCOPE & COST ESTIMATOR
   // ==========================================================================
-  let selectedDomain = "Modern Website";
-  let basePrice = 4000;
+  let selectedDomain = "Starter Modern Website";
+  let basePrice = 3000;
   let timelineMultiplier = 1.0;
   let timelineText = "2-4 WEEKS (Standard Agile)";
 
@@ -474,22 +474,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const totalBase = (basePrice + addOnCost) * timelineMultiplier;
-    const lower = Math.round(totalBase);
-    const upper = Math.round(totalBase * 1.35);
+    const lower = Math.max(3000, Math.min(Math.round(totalBase), 19999));
+    let upper = Math.min(Math.round(totalBase * 1.25), 19999);
+
+    if (upper <= lower && lower < 19999) {
+      upper = Math.min(lower + 1500, 19999);
+    }
+
+    const priceDisplay = lower >= 19999 
+      ? '₹19,999 (Max Cap)' 
+      : `₹${lower.toLocaleString('en-IN')} - ₹${upper.toLocaleString('en-IN')}`;
 
     if (estimatePrice) {
-      estimatePrice.textContent = `₹${lower.toLocaleString('en-IN')} - ₹${upper.toLocaleString('en-IN')}`;
+      estimatePrice.textContent = priceDisplay;
     }
 
     if (estimateSummaryText) {
-      estimateSummaryText.textContent = `${selectedDomain} + ${selectedAddOns.length} Add-on${selectedAddOns.length === 1 ? '' : 's'}`;
+      estimateSummaryText.textContent = `${selectedDomain} + ${selectedAddOns.length} Add-on${selectedAddOns.length === 1 ? '' : 's'} (Rate: ₹3,000 - ₹19,999 Max)`;
     }
 
     return {
       domain: selectedDomain,
       addOns: selectedAddOns,
       timeline: timelineText,
-      priceRange: `₹${lower.toLocaleString('en-IN')} - ₹${upper.toLocaleString('en-IN')}`
+      priceRange: priceDisplay
     };
   }
 
@@ -502,8 +510,8 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active', 'border-cyan-500/50', 'bg-cyan-950/40');
       btn.classList.remove('border-white/10', 'bg-white/[0.02]');
 
-      selectedDomain = btn.getAttribute('data-type') || "Modern Website";
-      basePrice = parseInt(btn.getAttribute('data-base') || '4000', 10);
+      selectedDomain = btn.getAttribute('data-type') || "Starter Modern Website";
+      basePrice = parseInt(btn.getAttribute('data-base') || '3000', 10);
       calculateEstimate();
     });
   });
