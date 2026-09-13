@@ -437,10 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 6. INSTANT PROJECT SCOPE & COST ESTIMATOR
   // ==========================================================================
-  let selectedDomain = "High-Converting Website";
-  let basePrice = 15000;
+  let selectedDomain = "Modern Website";
+  let basePrice = 4000;
   let timelineMultiplier = 1.0;
-  let timelineText = "2-3 WEEKS (Standard)";
+  let timelineText = "2-4 WEEKS (Standard Agile)";
 
   const typeButtons = document.querySelectorAll('.estimator-type-btn');
   const checkboxes = document.querySelectorAll('.estimator-checkbox');
@@ -502,8 +502,8 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active', 'border-cyan-500/50', 'bg-cyan-950/40');
       btn.classList.remove('border-white/10', 'bg-white/[0.02]');
 
-      selectedDomain = btn.getAttribute('data-type') || "Custom Project";
-      basePrice = parseInt(btn.getAttribute('data-base') || '15000', 10);
+      selectedDomain = btn.getAttribute('data-type') || "Modern Website";
+      basePrice = parseInt(btn.getAttribute('data-base') || '4000', 10);
       calculateEstimate();
     });
   });
