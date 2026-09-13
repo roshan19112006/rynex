@@ -18,7 +18,7 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-outfit: 'Outfit', sans-serif;
 
-  --color-void: #030308;
+  --color-void: #010104;
   --color-purple-glow: #9333ea;
   --color-cyan-glow: #06b6d4;
   --color-indigo-glow: #6366f1;
@@ -31,7 +31,7 @@ html {
 
 body {
   font-family: var(--font-outfit);
-  background-color: #030308;
+  background-color: #010104;
   color: #f8fafc;
   overflow-x: hidden;
   cursor: default;
@@ -43,12 +43,12 @@ body {
 .font-mono { font-family: var(--font-mono); }
 .font-outfit { font-family: var(--font-outfit); }
 
-/* Background Void */
+/* Background Void - Ultra Deep Dark */
 .bg-void {
-  background-color: #030308;
+  background-color: #010104;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(147, 51, 234, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 15% 15%, rgba(147, 51, 234, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.04) 0%, transparent 45%);
 }
 
 /* ==========================================================================
