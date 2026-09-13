@@ -475,26 +475,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const totalBase = (basePrice + addOnCost) * timelineMultiplier;
     // Always round to clean 500 intervals
-    let lower = Math.round(totalBase / 500) * 500;
-    lower = Math.max(3000, Math.min(lower, 19999));
-    
-    let upper = Math.round((totalBase * 1.2) / 500) * 500;
-    upper = Math.min(upper, 19999);
+    let finalAmount = Math.round(totalBase / 500) * 500;
+    finalAmount = Math.max(3000, Math.min(finalAmount, 19999));
 
-    if (upper <= lower && lower < 19999) {
-      upper = Math.min(lower + 1000, 19999);
-    }
-
-    const priceDisplay = lower >= 19999 
+    const priceDisplay = finalAmount >= 19999 
       ? '₹19,999 (Max Cap)' 
-      : (lower === upper ? `₹${lower.toLocaleString('en-IN')}` : `₹${lower.toLocaleString('en-IN')} - ₹${upper.toLocaleString('en-IN')}`);
+      : `₹${finalAmount.toLocaleString('en-IN')}`;
 
     if (estimatePrice) {
       estimatePrice.textContent = priceDisplay;
     }
 
     if (estimateSummaryText) {
-      estimateSummaryText.textContent = `${selectedDomain} + ${selectedAddOns.length} Add-on${selectedAddOns.length === 1 ? '' : 's'} (Clean Rounded: ₹3,000 - ₹19,999 Max)`;
+      estimateSummaryText.textContent = selectedAddOns.length === 0
+        ? `${selectedDomain} (Base Rate: ${priceDisplay})`
+        : `${selectedDomain} + ${selectedAddOns.length} Add-on${selectedAddOns.length === 1 ? '' : 's'} (Total: ${priceDisplay})`;
     }
 
     return {
